@@ -1,9 +1,11 @@
 import { Outlet } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
+import { Group, Stack } from '@mantine/core'
 
 import { Auth0ProviderWithRedirectCallback } from '../auth'
 import { Header } from './Header'
 import { env } from '../env'
+import { NavbarSimple } from './Sidebar'
 
 export const ProtectedLayout = () => {
   return (
@@ -15,20 +17,23 @@ export const ProtectedLayout = () => {
       }}
     >
       <AnimatePresence>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexDirection: 'column',
-            marginBottom: '40px',
-          }}
-        >
-          <Header />
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+          <Group spacing={0}>
+            <NavbarSimple />
 
-          <Outlet />
+            <Stack
+              sx={{
+                height: '100vh',
+                alignItems: 'center',
+                background: '#F3F3F7',
+                flex: 'auto',
+                paddingBottom: 40,
+              }}
+            >
+              <Header />
+              <Outlet />
+            </Stack>
+          </Group>
         </motion.div>
       </AnimatePresence>
     </Auth0ProviderWithRedirectCallback>

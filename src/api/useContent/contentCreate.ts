@@ -5,23 +5,23 @@ import { useAuth0 } from '@auth0/auth0-react'
 
 import { client8Base } from '../client'
 
-export const useContentCreate = () => {
+export const useContent2Create = () => {
   const navigate = useNavigate()
   const { user } = useAuth0()
 
   return useMutation({
-    mutationKey: ['content'],
+    mutationKey: ['content2'],
 
     mutationFn: async () => {
       const mutation = gql`
-        mutation ContentCreate($data: ContentCreateInput!) {
-          contentCreate(data: $data) {
+        mutation Content2Create($data: Content2CreateInput!) {
+          content2Create(data: $data) {
             id
           }
         }
       `
 
-      const res = client8Base.request(mutation, {
+      const res = await client8Base.request(mutation, {
         data: {
           user: {
             connect: {
@@ -34,7 +34,7 @@ export const useContentCreate = () => {
     },
 
     onSuccess: (data: any) => {
-      navigate(data?.contentCreate.id)
+      navigate(data?.content2Create.id)
     },
   })
 }

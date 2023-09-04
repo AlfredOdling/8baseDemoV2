@@ -3,14 +3,14 @@ import { gql } from 'graphql-request'
 import { client8Base } from '../client'
 import { queryClient } from '../../App'
 
-export const useContent2Update = () => {
+export const useChatHistoryCreate = () => {
   return useMutation({
-    mutationKey: ['content'],
+    mutationKey: ['chatHistoryList'],
 
     mutationFn: async (payload: any) => {
       const mutation = gql`
-        mutation Content2Update($data: Content2UpdateInput!) {
-          content2Update(data: $data) {
+        mutation ChatHistoryCreate($data: ChatHistoryCreateInput!) {
+          chatHistoryCreate(data: $data) {
             id
           }
         }
@@ -25,7 +25,7 @@ export const useContent2Update = () => {
 
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({
-        queryKey: ['content'],
+        queryKey: ['chatHistoryList'],
       })
     },
   })

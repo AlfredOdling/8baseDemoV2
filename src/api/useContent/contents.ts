@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 import { gql } from 'graphql-request'
 import { client8Base } from '../client'
 import { useAuth0 } from '@auth0/auth0-react'
-import { ContentListResponse_ } from '../schemaTypes'
+import { Content2ListResponse_ } from '../types/schemaTypes'
 
 export const useContents = () => {
   const { user } = useAuth0()
@@ -12,8 +12,8 @@ export const useContents = () => {
 
     queryFn: async () => {
       const query = gql`
-        query contentsList($filter: ContentFilter) {
-          contentsList(filter: $filter) {
+        query content2sList($filter: Content2Filter) {
+          content2SList(filter: $filter) {
             items {
               id
               title
@@ -24,10 +24,8 @@ export const useContents = () => {
       const res = client8Base.request(query, {
         filter: {
           user: {
-            some: {
-              email: {
-                equals: user?.email,
-              },
+            email: {
+              equals: user?.email,
             },
           },
         },
@@ -36,6 +34,6 @@ export const useContents = () => {
     },
 
     select: (data: any) =>
-      data?.contentsList?.items as ContentListResponse_['items'],
+      data?.content2SList?.items as Content2ListResponse_['items'],
   })
 }

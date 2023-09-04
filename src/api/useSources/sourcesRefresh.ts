@@ -3,21 +3,23 @@ import { gql } from 'graphql-request'
 import { client8Base } from '../client'
 import { queryClient } from '../../App'
 
-export const useContent2Update = () => {
+export const useContentUpdate = () => {
   return useMutation({
     mutationKey: ['content'],
 
     mutationFn: async (payload: any) => {
       const mutation = gql`
-        mutation Content2Update($data: Content2UpdateInput!) {
-          content2Update(data: $data) {
+        mutation ContentUpdate($data: ContentUpdateInput!) {
+          contentUpdate(data: $data) {
             id
           }
         }
       `
+
       const res = client8Base.request(mutation, {
         data: {
-          ...payload,
+          id: payload.id,
+          url: payload.url,
         },
       })
       return res
@@ -25,7 +27,7 @@ export const useContent2Update = () => {
 
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({
-        queryKey: ['content'],
+        queryKey: ['content', variables.contentId],
       })
     },
   })

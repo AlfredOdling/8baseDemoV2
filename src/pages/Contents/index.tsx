@@ -4,27 +4,23 @@ import { useNavigate } from 'react-router-dom'
 import { useMediaQuery } from 'react-responsive'
 import { ActionIcon, Button, Divider, Group, Stack, Title } from '@mantine/core'
 
-import { useContentCreate } from '../api/useContent/contentCreate'
-import { useContents } from '../api/useContent/contents'
-import { useContentDelete } from '../api/useContent/contentDelete'
-import { neumorph } from '../shared/styles/styles'
+import { card } from '../../shared/styles/styles'
+import { useContent2Create } from '../../api/useContent/contentCreate'
+import { useContents } from '../../api/useContent/contents'
+import { useContent2Delete } from '../../api/useContent/contentDelete'
 
 export function ContentsPage() {
   const navigate = useNavigate()
-  const contentCreate = useContentCreate()
-  const contentDelete = useContentDelete()
-  const contentsList = useContents()
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` })
+
+  const contentCreate = useContent2Create()
+  const contentDelete = useContent2Delete()
+  const contentList = useContents()
 
   return (
     <Stack
-      spacing={15}
       sx={{
-        ...neumorph,
-        width: '90%',
-        maxWidth: '800px',
-        alignItems: 'flex-start',
-        padding: 25,
+        ...card,
       }}
     >
       <Group sx={{ width: '100%', justifyContent: 'space-between' }}>
@@ -41,18 +37,18 @@ export function ContentsPage() {
       </Group>
       <Divider />
 
-      {contentsList?.data?.map((item: any) => (
+      {contentList?.data?.map(item => (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           key={`${item.id}-contents`}
         >
           <Group spacing={10}>
-            <Button onClick={() => navigate(item.id)}>
+            <Button onClick={() => navigate(item.id!)}>
               {!isMobile
                 ? item.title
-                : item.title.length > 25
-                ? `${item.title.substring(0, 25)}...`
+                : item.title!.length > 25
+                ? `${item.title!.substring(0, 25)}...`
                 : item.title}
             </Button>
 

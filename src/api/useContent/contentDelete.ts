@@ -4,16 +4,16 @@ import { gql } from 'graphql-request'
 import { client8Base } from '../client'
 import { queryClient } from '../../App'
 
-export const useContentDelete = () => {
+export const useContent2Delete = () => {
   const navigate = useNavigate()
 
   return useMutation({
-    mutationKey: ['content'],
+    mutationKey: ['content2'],
 
     mutationFn: async (payload: any) => {
       const mutation = gql`
-        mutation ContentDelete($data: ContentDeleteInput!) {
-          contentDelete(data: $data) {
+        mutation Content2Delete($data: Content2DeleteInput!) {
+          content2Delete(data: $data) {
             success
           }
         }
@@ -30,8 +30,8 @@ export const useContentDelete = () => {
     },
 
     onSuccess: (data: any) => {
-      navigate(data?.contentDelete.id)
-      queryClient.invalidateQueries({ queryKey: ['contentsList'] })
+      navigate(data?.content2Delete.id)
+      queryClient.invalidateQueries({ queryKey: ['content2sList'] })
     },
   })
 }

@@ -22,7 +22,6 @@
   },
   "include": [
     "src",
-    "src/api/schemaTypes.ts"
   ],
   "exclude": [
     "src/api/schemaTypes.ts"
