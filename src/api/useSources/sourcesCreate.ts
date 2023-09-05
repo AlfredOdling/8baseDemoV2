@@ -18,7 +18,7 @@ export const useSourcesCreate = () => {
 
     mutationFn: (payload: SourcesCreateInput) => {
       return axios.post(
-        `${env.SERVER_URL}/scrapeAndIndex`,
+        `${'express-langchain-production-9e0e.up.railway.app'}/scrapeAndIndex`,
         {
           url: payload.url,
           type: payload.type,
