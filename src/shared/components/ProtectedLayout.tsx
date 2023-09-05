@@ -13,7 +13,7 @@ export const ProtectedLayout = () => {
       domain={env.AUTH0_DOMAIN}
       clientId={env.AUTH0_CLIENT_ID}
       authorizationParams={{
-        redirect_uri: window.location.origin,
+        redirect_uri: 'https://main--tiny-lamington-61ab54.netlify.app',
       }}
     >
       <AnimatePresence>
