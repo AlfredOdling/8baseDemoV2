@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { IconEdit, IconRobot } from '@tabler/icons-react'
+import { IconRobot } from '@tabler/icons-react'
 import { LiaEdit, LiaSave, LiaSpinnerSolid } from 'react-icons/lia'
 import {
   Group,
@@ -111,6 +111,9 @@ export function ContentPage() {
         {edit ? (
           <Group spacing={3}>
             <ActionIcon
+              sx={{
+                marginLeft: 0,
+              }}
               onClick={() => {
                 setEdit(false)
                 updateContent.mutate({
@@ -152,59 +155,50 @@ export function ContentPage() {
         />
       </Stack>
 
-      <Group
+      <Stack
         sx={{
           ...card,
+          justifyContent: 'space-between',
         }}
       >
-        <Stack
+        <ScrollArea
+          offsetScrollbars
+          h={'48vh'}
+          viewportRef={viewport}
+          scrollbarSize={6}
+        >
+          {chatHistory.data
+            ?.sort((a: any, b: any) => a.createdAt - b.createdAt)
+            .map((item: any, i) => (
+              <Message key={`message-${i}`} item={item} />
+            ))}
+        </ScrollArea>
+
+        <Group
           sx={{
-            backgroundColor: '#F5F5FC',
-            padding: 10,
             borderRadius: 16,
-            justifyContent: 'space-between',
             width: '100%',
           }}
         >
-          <ScrollArea
-            offsetScrollbars
-            h={600}
-            viewportRef={viewport}
-            scrollbarSize={6}
-          >
-            {chatHistory.data
-              ?.sort((a: any, b: any) => a.createdAt - b.createdAt)
-              .map((item: any, i) => (
-                <Message key={`message-${i}`} item={item} />
-              ))}
-          </ScrollArea>
-
-          <Group
+          <TextInput
+            value={chatValue}
+            onChange={e => setChat(e.target.value)}
+            onKeyDown={e => e.key === 'Enter' && onClickChat()}
+            placeholder="Chat with your data"
             sx={{
-              borderRadius: 16,
-              width: '100%',
+              flex: 1,
             }}
-          >
-            <TextInput
-              value={chatValue}
-              onChange={e => setChat(e.target.value)}
-              onKeyDown={e => e.key === 'Enter' && onClickChat()}
-              placeholder="Chat with your data"
-              sx={{
-                flex: 1,
-              }}
-            />
+          />
 
-            <Button
-              onClick={onClickChat}
-              rightIcon={<IconRobot />}
-              loading={chat.isLoading}
-            >
-              Chat
-            </Button>
-          </Group>
-        </Stack>
-      </Group>
+          <Button
+            onClick={onClickChat}
+            rightIcon={<IconRobot />}
+            loading={chat.isLoading}
+          >
+            Chat
+          </Button>
+        </Group>
+      </Stack>
     </>
   )
 }

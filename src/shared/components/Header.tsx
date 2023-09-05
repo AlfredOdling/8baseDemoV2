@@ -12,9 +12,9 @@ export const Header = () => {
       sx={{
         width: '100%',
         alignItems: 'center',
-        marginBottom: '40px',
         padding: '15px',
         justifyContent: 'space-between',
+        display: 'none',
       }}
     >
       <ActionIcon

@@ -29,7 +29,7 @@ export const useSourcesCreate = () => {
     },
 
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['sourcesList'] })
+      queryClient.invalidateQueries({ queryKey: ['actors'] })
     },
   })
 }

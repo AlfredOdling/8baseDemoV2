@@ -19,6 +19,8 @@ export const Message = ({ item }: any) => (
       width: '100%',
       padding: 15,
       marginBottom: 15,
+      marginLeft: 3,
+      marginTop: 3,
     }}
   >
     {item.role === 'ai' ? (

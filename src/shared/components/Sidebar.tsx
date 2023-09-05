@@ -9,6 +9,7 @@ import {
   Button,
   Stack,
   Text,
+  ActionIcon,
 } from '@mantine/core'
 import {
   IconLogout,
@@ -19,6 +20,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
 import { paths } from '../../routes/paths'
 import { useLocation } from 'react-router-dom'
+import { LiaArrowLeftSolid } from 'react-icons/lia'
 
 const useStyles = createStyles(theme => ({
   header: {
@@ -128,9 +130,23 @@ export function NavbarSimple() {
   return (
     <Navbar width={{ sm: 300 }} p="md">
       <Navbar.Section grow>
-        <Group className={classes.header} position="apart">
-          <Code sx={{ fontWeight: 700 }}>v1.0.0</Code>
+        <Group
+          className={classes.header}
+          position="apart"
+          sx={{
+            justifyContent: 'flex-end',
+          }}
+        >
+          <Button
+            leftIcon={<LiaArrowLeftSolid />}
+            variant="outline"
+            color="gray"
+            onClick={() => navigate(-1)}
+          >
+            Back
+          </Button>
         </Group>
+
         {links}
       </Navbar.Section>
 

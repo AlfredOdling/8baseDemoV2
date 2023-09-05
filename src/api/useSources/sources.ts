@@ -31,6 +31,9 @@ export const useSources = () => {
             },
           },
         },
+        sort: {
+          updatedAt: 'DESC',
+        },
       })
       return res
     },

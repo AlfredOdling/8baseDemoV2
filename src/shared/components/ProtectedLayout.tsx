@@ -27,7 +27,9 @@ export const ProtectedLayout = () => {
                 alignItems: 'center',
                 background: '#F3F3F7',
                 flex: 1,
-                paddingBottom: 40,
+                paddingBottom: 30,
+                paddingTop: 30,
+                flexWrap: 'unset',
               }}
             >
               <Header />

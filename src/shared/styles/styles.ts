@@ -3,6 +3,6 @@ export const card = {
   background: 'white',
   borderRadius: '16px',
   width: '90%',
-  padding: 25,
+  padding: 20,
   spacing: 15,
 }
