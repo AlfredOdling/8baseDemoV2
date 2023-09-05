@@ -28,6 +28,7 @@ export function ContentsPage() {
         <Divider />
 
         <Button
+          variant="gradient"
           loading={contentCreate.isLoading}
           onClick={() => contentCreate.mutate()}
           leftIcon={<LiaPlusSolid />}
@@ -44,7 +45,7 @@ export function ContentsPage() {
           key={`${item.id}-contents`}
         >
           <Group spacing={10}>
-            <Button onClick={() => navigate(item.id!)}>
+            <Button variant="gradient" onClick={() => navigate(item.id!)}>
               {!isMobile
                 ? item.title
                 : item.title!.length > 25

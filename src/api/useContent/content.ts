@@ -1,8 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { gql } from 'graphql-request'
-
 import { client8Base } from '../client'
-import { Content2_ } from '../types/schemaTypes'
 
 export const useContent = (contentId: string) =>
   useQuery({

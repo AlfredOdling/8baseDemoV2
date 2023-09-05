@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
+import { env } from '../../shared/env'
 
 export const useActorRuns = () => {
   return useQuery({
@@ -6,7 +7,7 @@ export const useActorRuns = () => {
 
     queryFn: async (data_: any) => {
       const res = await fetch(
-        'https://api.apify.com/v2/acts/apify~website-content-crawler/runs?token=apify_api_JLmVK7PLX20Zb0LzZq6hD6WUV29oDi242IA9'
+        `https://api.apify.com/v2/acts/apify~website-content-crawler/runs?token=${env.APIFY_API_KEY}`
       )
       const json = await res.json()
 

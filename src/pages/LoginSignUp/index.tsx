@@ -87,6 +87,7 @@ export function LoginSignUpPage() {
       </MotionConfig>
 
       <Button
+        variant="gradient"
         onClick={() => setShow(!show)}
         sx={{
           position: 'absolute',

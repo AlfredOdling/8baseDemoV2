@@ -1,7 +1,9 @@
+import axios from 'axios'
 import { useMutation } from '@tanstack/react-query'
 import { useAuth0 } from '@auth0/auth0-react'
-import axios from 'axios'
+
 import { queryClient } from '../../App'
+import { env } from '../../shared/env'
 
 interface SourcesCreateInput {
   url: string
@@ -16,7 +18,7 @@ export const useSourcesCreate = () => {
 
     mutationFn: (payload: SourcesCreateInput) => {
       return axios.post(
-        'http://localhost:3001/scrapeAndIndex',
+        `${env.SERVER_URL}/scrapeAndIndex`,
         {
           url: payload.url,
           type: payload.type,

@@ -21,5 +21,5 @@ export const Auth0ProviderWithRedirectCallback = ({
 export const ProtectedRoute = ({ component, ...args }: any) => {
   const Component = withAuthenticationRequired(component, args)
 
-  return <Component />
+  return <Component {...args} />
 }

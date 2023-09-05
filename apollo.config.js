@@ -1,8 +1,10 @@
+import { env } from './src/shared/env'
+
 module.exports = {
   client: {
     service: {
       name: '8base',
-      url: 'https://uk.api.8base.com/cl1bujdae06nb09mhasqg4we4',
+      url: env.EIGHTBASE_API_ENDPOINT,
     },
     includes: ['src/**/*.{ts,tsx,js,jsx}'],
   },

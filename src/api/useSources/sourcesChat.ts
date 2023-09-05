@@ -1,6 +1,8 @@
 import axios from 'axios'
 import { useMutation } from '@tanstack/react-query'
+
 import { useChatHistoryCreate } from '../useChatHistory/chatHistoryCreate'
+import { env } from '../../shared/env'
 
 interface SourcesChatInput {
   sourceIds: string[]
@@ -15,7 +17,7 @@ export const useSourcesChat = (contentId: string) => {
 
     mutationFn: (payload: SourcesChatInput) => {
       return axios.post(
-        'http://localhost:3001/chat',
+        `${env.SERVER_URL}/chat`,
         {
           sourceIds: payload.sourceIds,
           query: payload.query,

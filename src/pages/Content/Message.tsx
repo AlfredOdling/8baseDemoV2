@@ -27,8 +27,9 @@ export const Message = ({ item }: any) => (
       <Group spacing={5}>
         <Badge
           pl={5}
-          leftSection={<IconRobot style={{ height: 17, marginTop: 4 }} />}
+          leftSection={<IconRobot style={{ height: 17, marginTop: 6 }} />}
           variant="gradient"
+          size="lg"
           gradient={{ from: 'teal', to: 'lime', deg: 105 }}
         >
           AI
@@ -60,7 +61,10 @@ export const Message = ({ item }: any) => (
       <Group fw={500} spacing={5}>
         <Badge
           pl={5}
-          leftSection={<IconUser style={{ height: 17, marginTop: 4 }} />}
+          size="lg"
+          leftSection={
+            <IconUser style={{ height: 16, marginTop: 7, strokeWidth: 2.5 }} />
+          }
           variant="gradient"
           gradient={{ from: '#ed6ea0', to: '#ec8c69', deg: 35 }}
         >

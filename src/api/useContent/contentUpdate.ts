@@ -1,5 +1,6 @@
 import { useMutation } from '@tanstack/react-query'
 import { gql } from 'graphql-request'
+
 import { client8Base } from '../client'
 import { queryClient } from '../../App'
 
@@ -23,7 +24,7 @@ export const useContent2Update = () => {
       return res
     },
 
-    onSuccess: (_, variables) => {
+    onSuccess: _ => {
       queryClient.invalidateQueries({
         queryKey: ['content'],
       })

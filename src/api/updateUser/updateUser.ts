@@ -1,7 +1,8 @@
 import { useMutation } from '@tanstack/react-query'
-import { gql } from 'graphql-request'
-import { client8Base } from '../client'
 import { useAuth0 } from '@auth0/auth0-react'
+import { gql } from 'graphql-request'
+
+import { client8Base } from '../client'
 
 export const useUpdateUser = () => {
   const { user } = useAuth0()

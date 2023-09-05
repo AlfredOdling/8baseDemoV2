@@ -1,7 +1,8 @@
 import { useQuery } from '@tanstack/react-query'
 import { gql } from 'graphql-request'
-import { client8Base } from '../client'
 import { useAuth0 } from '@auth0/auth0-react'
+
+import { client8Base } from '../client'
 import { Content2ListResponse_ } from '../types/schemaTypes'
 
 export const useContents = () => {

@@ -1,10 +1,11 @@
+import { env } from './src/shared/env'
 import type { CodegenConfig } from '@graphql-codegen/cli'
 
 const config: CodegenConfig = {
   overwrite: true,
   schema: [
     {
-      'https://uk.api.8base.com/cl1bujdae06nb09mhasqg4we4': {
+      [env.EIGHTBASE_API_ENDPOINT!]: {
         commentDescriptions: true,
       }
     }

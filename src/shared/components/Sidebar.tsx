@@ -3,13 +3,11 @@ import {
   createStyles,
   Navbar,
   Group,
-  Code,
   getStylesRef,
   rem,
   Button,
   Stack,
   Text,
-  ActionIcon,
 } from '@mantine/core'
 import {
   IconLogout,
@@ -139,7 +137,7 @@ export function NavbarSimple() {
         >
           <Button
             leftIcon={<LiaArrowLeftSolid />}
-            variant="outline"
+            variant="subtle"
             color="gray"
             onClick={() => navigate(-1)}
           >
@@ -155,13 +153,14 @@ export function NavbarSimple() {
           <Text>{user?.email}</Text>
 
           <Button
+            variant="gradient"
             onClick={() =>
               logout({
                 logoutParams: {
                   returnTo:
                     process.env.NODE_ENV === 'production'
                       ? 'https://main--delicate-eclair-57fb94.netlify.app/loginSignUp'
-                      : 'http://localhost:3000/loginSignUp',
+                      : 'http://localhost:3001/loginSignUp',
                 },
               })
             }

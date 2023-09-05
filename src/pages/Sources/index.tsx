@@ -86,6 +86,7 @@ export function SourcesPage() {
         />
 
         <Button
+          variant="gradient"
           disabled={!urlValue || sourcesCreate.isLoading}
           loading={sourcesCreate.isLoading}
           onClick={() => {
@@ -133,19 +134,19 @@ export function SourcesPage() {
               >
                 <Group spacing={7}>
                   <Group spacing={0}>
-                    <LiaDollarSignSolid color="grey" />
-                    <Text color="dimmed" fw={500} size={'xs'}>
+                    <LiaDollarSignSolid strokeWidth={1} color="grey" />
+                    <Text color="dimmed" fw={600} size={'xs'}>
                       {item.usageTotalUsd.toFixed(3)} USD
                     </Text>
                   </Group>
 
-                  <Text color="grey" fw={500} size={'xs'}>
+                  <Text color="grey" size={'xs'}>
                     |
                   </Text>
 
                   <Group spacing={3}>
-                    <LiaClock color="grey" />
-                    <Text color="dimmed" fw={500} size={'xs'}>
+                    <LiaClock strokeWidth={1} color="grey" />
+                    <Text color="dimmed" fw={600} size={'xs'}>
                       {formatDistanceToNow(new Date(item.startedAt))}
                     </Text>
                   </Group>

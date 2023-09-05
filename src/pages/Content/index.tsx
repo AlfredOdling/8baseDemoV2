@@ -20,8 +20,8 @@ import { useSourcesChat } from '../../api/useSources/sourcesChat'
 import { useContent2Update } from '../../api/useContent/contentUpdate'
 import { useContent } from '../../api/useContent/content'
 import { useChatHistory } from '../../api/useChatHistory/chatHistory'
-import { Message } from './Message'
 import { useChatHistoryCreate } from '../../api/useChatHistory/chatHistoryCreate'
+import { Message } from './Message'
 
 export function ContentPage() {
   const [edit, setEdit] = useState(false)
@@ -39,7 +39,6 @@ export function ContentPage() {
   const chatHistoryCreate = useChatHistoryCreate()
 
   const [title, setTitle] = useState(content.data?.title || 'Title')
-  console.log('🚀  content.data?.title:', content.data?.title)
 
   const sourcesData =
     sources?.data
@@ -191,6 +190,7 @@ export function ContentPage() {
           />
 
           <Button
+            variant="gradient"
             onClick={onClickChat}
             rightIcon={<IconRobot />}
             loading={chat.isLoading}
