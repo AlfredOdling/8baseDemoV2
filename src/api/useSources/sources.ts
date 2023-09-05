@@ -1,12 +1,12 @@
 import { useQuery } from '@tanstack/react-query'
 import { gql } from 'graphql-request'
-import { useAuth0 } from '@auth0/auth0-react'
+// import { useAuth0 } from '@auth0/auth0-react'
 
 import { SourceListResponse_ } from '../types/schemaTypes'
 import { client8Base } from '../client'
 
 export const useSources = () => {
-  const { user } = useAuth0()
+  // const { user } = useAuth0()
 
   return useQuery({
     queryKey: ['sourcesList'],
@@ -24,13 +24,13 @@ export const useSources = () => {
         }
       `
       const res = client8Base.request(query, {
-        filter: {
-          user: {
-            email: {
-              equals: user?.email,
-            },
-          },
-        },
+        // filter: {
+        //   user: {
+        //     email: {
+        //       equals: user?.email,
+        //     },
+        //   },
+        // },
         sort: {
           updatedAt: 'DESC',
         },
