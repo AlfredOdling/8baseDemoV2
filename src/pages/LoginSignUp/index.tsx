@@ -130,13 +130,13 @@ export function LoginSignUpPage() {
                 referrerPolicy="no-referrer"
                 href="https://flask.palletsprojects.com/en/2.3.x/"
               >
-                - Flask (running OpenAIs python API)
+                - Express (running OpenAIs JavaScript API)
               </Anchor>
               <Anchor
                 referrerPolicy="no-referrer"
                 href="https://www.railway.app/"
               >
-                - Railway (hosting Flask server)
+                - Railway (hosting Express server)
               </Anchor>
             </Stack>
 
@@ -169,13 +169,13 @@ export function LoginSignUpPage() {
               <strong>Github </strong>
               <Anchor
                 referrerPolicy="no-referrer"
-                href="https://github.com/AlfredOdling/8baseDemo"
+                href="https://github.com/AlfredOdling/8baseDemoV2"
               >
                 - Frontend
               </Anchor>
               <Anchor
                 referrerPolicy="no-referrer"
-                href="https://github.com/AlfredOdling/flask"
+                href="https://github.com/AlfredOdling/express-langchain"
               >
                 - Backend
               </Anchor>
