@@ -159,7 +159,7 @@ export function NavbarSimple() {
                 logoutParams: {
                   returnTo:
                     process.env.NODE_ENV === 'production'
-                      ? 'https://main--delicate-eclair-57fb94.netlify.app/loginSignUp'
+                      ? 'https://main--tiny-lamington-61ab54.netlify.app/loginSignUp'
                       : 'http://localhost:3001/loginSignUp',
                 },
               })
