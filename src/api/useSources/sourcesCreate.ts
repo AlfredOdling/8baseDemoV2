@@ -3,7 +3,7 @@ import { useMutation } from '@tanstack/react-query'
 import { useAuth0 } from '@auth0/auth0-react'
 
 import { queryClient } from '../../App'
-//import { env } from '../../shared/env'
+import { env } from '../../shared/env'
 
 interface SourcesCreateInput {
   url: string
@@ -18,7 +18,7 @@ export const useSourcesCreate = () => {
 
     mutationFn: (payload: SourcesCreateInput) => {
       return axios.post(
-        `${'express-langchain-production-9e0e.up.railway.app'}/scrapeAndIndex`,
+        `${env.SERVER_URL}/scrapeAndIndex`,
         {
           url: payload.url,
           type: payload.type,
