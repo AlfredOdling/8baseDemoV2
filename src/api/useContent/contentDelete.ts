@@ -8,7 +8,7 @@ export const useContent2Delete = () => {
   const navigate = useNavigate()
 
   return useMutation({
-    mutationKey: ['content2'],
+    mutationKey: ['contentsList'],
 
     mutationFn: async (payload: any) => {
       const mutation = gql`
@@ -31,7 +31,7 @@ export const useContent2Delete = () => {
 
     onSuccess: (data: any) => {
       navigate(data?.content2Delete.id)
-      queryClient.invalidateQueries({ queryKey: ['content2sList'] })
+      queryClient.invalidateQueries({ queryKey: ['contentsList'] })
     },
   })
 }

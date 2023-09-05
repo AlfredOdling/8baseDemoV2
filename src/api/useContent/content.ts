@@ -13,6 +13,7 @@ export const useContent = (contentId: string) =>
         query Content($id: ID) {
           content2(id: $id) {
             id
+            title
             sources {
               items {
                 id

@@ -26,7 +26,7 @@ export const ProtectedLayout = () => {
                 height: '100vh',
                 alignItems: 'center',
                 background: '#F3F3F7',
-                flex: 'auto',
+                flex: 1,
                 paddingBottom: 40,
               }}
             >

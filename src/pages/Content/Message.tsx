@@ -18,6 +18,7 @@ export const Message = ({ item }: any) => (
       ...card,
       width: '100%',
       padding: 15,
+      marginBottom: 15,
     }}
   >
     {item.role === 'ai' ? (
@@ -65,6 +66,7 @@ export const Message = ({ item }: any) => (
         </Badge>
       </Group>
     )}
+
     <Text>{item.text}</Text>
 
     {item.sourceDocuments && (
