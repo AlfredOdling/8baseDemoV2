@@ -1,12 +1,15 @@
 import { Outlet } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Auth0ProviderWithRedirectCallback } from '../auth'
+import { env } from '../env'
 
 export const OpenLayout = () => {
+  console.log('🚀  window.location.origin:', window.location.origin)
+
   return (
     <Auth0ProviderWithRedirectCallback
-      domain="dev-nhdp1bejfg718y3u.eu.auth0.com"
-      clientId="wXTGak6ZbDqUTnJuxwTKOkSQ3jAzUutP"
+      domain={env.AUTH0_DOMAIN}
+      clientId={env.AUTH0_CLIENT_ID}
       authorizationParams={{
         redirect_uri: window.location.origin,
       }}
