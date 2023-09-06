@@ -29,9 +29,7 @@ import { useActorRuns } from '../../api/useActorRuns/actorRuns'
 
 export function SourcesPage() {
   const [selectValue, setSelectValue] = useInputState<string | null>('website')
-  const [urlValue, setUrlValue] = useInputState(
-    'http://books.toscrape.com/catalogue/sapiens-a-brief-history-of-humankind_996/index.html'
-  )
+  const [urlValue, setUrlValue] = useInputState('')
   const sourcesCreate = useSourcesCreate()
   const actorRuns = useActorRuns()
 
@@ -41,6 +39,11 @@ export function SourcesPage() {
     value.includes('youtube')
       ? setSelectValue('youtube')
       : setSelectValue('website')
+  }
+
+  const onClick = () => {
+    sourcesCreate.mutate({ url: urlValue, type: selectValue })
+    setValue('')
   }
 
   if (actorRuns.isLoading) {
@@ -89,10 +92,8 @@ export function SourcesPage() {
           variant="gradient"
           disabled={!urlValue || sourcesCreate.isLoading}
           loading={sourcesCreate.isLoading}
-          onClick={() => {
-            sourcesCreate.mutate({ url: urlValue, type: selectValue })
-            setValue('')
-          }}
+          onClick={onClick}
+          onKeyDown={e => e.key === 'Enter' && onClick()}
           leftIcon={<LiaPlusSolid />}
         >
           Scrape
