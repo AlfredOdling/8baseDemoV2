@@ -120,47 +120,35 @@ export function LoginSignUpPage() {
           >
             <Stack spacing={3}>
               <strong>Backend: </strong>
-              <Anchor
-                referrerPolicy="no-referrer"
-                href="https://www.8base.com/"
-              >
+              <Anchor target="_blank" href="https://www.8base.com/">
                 - 8base (GraphQL BaaS)
               </Anchor>
               <Anchor
-                referrerPolicy="no-referrer"
+                target="_blank"
                 href="https://flask.palletsprojects.com/en/2.3.x/"
               >
                 - Express (running OpenAIs JavaScript API)
               </Anchor>
-              <Anchor
-                referrerPolicy="no-referrer"
-                href="https://www.railway.app/"
-              >
+              <Anchor target="_blank" href="https://www.railway.app/">
                 - Railway (hosting Express server)
               </Anchor>
             </Stack>
 
             <Stack mt={15} spacing={3}>
               <strong>Frontend: </strong>
-              <Anchor referrerPolicy="no-referrer" href="https://react.dev/">
+              <Anchor target="_blank" href="https://react.dev/">
                 - React
               </Anchor>
-              <Anchor referrerPolicy="no-referrer" href="https://mantine.dev/">
+              <Anchor target="_blank" href="https://mantine.dev/">
                 - Mantine (Component library)
               </Anchor>
-              <Anchor
-                referrerPolicy="no-referrer"
-                href="https://tanstack.com/query/v3/"
-              >
+              <Anchor target="_blank" href="https://tanstack.com/query/v3/">
                 - React Query (Data fetching)
               </Anchor>
-              <Anchor referrerPolicy="no-referrer" href="https://netlify.com/">
+              <Anchor target="_blank" href="https://netlify.com/">
                 - Netlify (Hosting)
               </Anchor>
-              <Anchor
-                referrerPolicy="no-referrer"
-                href="https://www.framer.com/motion/"
-              >
+              <Anchor target="_blank" href="https://www.framer.com/motion/">
                 - Framer Motion / Framer Motion 3D (Animations)
               </Anchor>
             </Stack>
@@ -168,13 +156,13 @@ export function LoginSignUpPage() {
             <Stack mt={15} spacing={3}>
               <strong>Github </strong>
               <Anchor
-                referrerPolicy="no-referrer"
+                target="_blank"
                 href="https://github.com/AlfredOdling/8baseDemoV2"
               >
                 - Frontend
               </Anchor>
               <Anchor
-                referrerPolicy="no-referrer"
+                target="_blank"
                 href="https://github.com/AlfredOdling/express-langchain"
               >
                 - Backend

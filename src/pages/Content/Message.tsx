@@ -82,11 +82,7 @@ export const Message = ({ item }: any) => (
         </Text>
 
         {item.sourceDocuments?.map((item: any) => (
-          <Anchor
-            size={'xs'}
-            href={item.sourceDocuments?.metadata?.source}
-            target="_blank"
-          >
+          <Anchor size={'xs'} href={item.metadata.source} target="_blank">
             {item.metadata.source}
           </Anchor>
         ))}
