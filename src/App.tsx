@@ -2,6 +2,7 @@ import { RouterProvider } from 'react-router-dom'
 import { MutationCache, QueryCache, QueryClient } from '@tanstack/react-query'
 import { Notifications, notifications } from '@mantine/notifications'
 import { IconX } from '@tabler/icons-react'
+import { ScrollArea } from '@mantine/core'
 
 import { router } from './routes'
 
@@ -15,9 +16,12 @@ export const queryClient = new QueryClient({
         notifications.show({
           color: 'red',
           title: 'Default notification',
-          message: errMsg.slice(0, 250),
+          message: (
+            <ScrollArea offsetScrollbars h={170} scrollbarSize={6}>
+              {errMsg.slice(0, 250)}
+            </ScrollArea>
+          ),
           icon: <IconX />,
-          autoClose: 40000,
           closeButtonProps: {
             sx: {
               all: 'inherit',
@@ -51,6 +55,6 @@ export type QueryClientType = typeof queryClient
 export const App = () => (
   <>
     <RouterProvider router={router} />
-    <Notifications />
+    <Notifications autoClose={false} />
   </>
 )

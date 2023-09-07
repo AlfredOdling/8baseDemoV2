@@ -4,8 +4,6 @@ import { Auth0ProviderWithRedirectCallback } from '../auth'
 import { env } from '../env'
 
 export const OpenLayout = () => {
-  console.log('🚀  window.location.origin:', window.location.origin)
-
   return (
     <Auth0ProviderWithRedirectCallback
       domain={env.AUTH0_DOMAIN}

@@ -151,6 +151,7 @@ export function ContentPage() {
           onSearchChange={onSearchChange}
           nothingFound="Nothing found"
           rightSection={updateContent.isLoading && <Loader size={'sm'} />}
+          clearable
         />
       </Stack>
 

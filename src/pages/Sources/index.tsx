@@ -113,6 +113,7 @@ export function SourcesPage() {
           {actorRuns?.data?.items
             .map((item: any) => (
               <Timeline.Item
+                key={item.id}
                 bullet={
                   item.status === 'SUCCEEDED' ? (
                     <IconCheck size={12} />

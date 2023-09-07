@@ -8,7 +8,6 @@ import { env } from '../env'
 import { NavbarSimple } from './Sidebar'
 
 export const ProtectedLayout = () => {
-  console.log('🚀  window.location.origin:', window.location.origin)
   return (
     <Auth0ProviderWithRedirectCallback
       domain={env.AUTH0_DOMAIN}
