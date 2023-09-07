@@ -17,7 +17,7 @@ export const queryClient = new QueryClient({
           color: 'red',
           title: 'Default notification',
           message: (
-            <ScrollArea offsetScrollbars h={170} scrollbarSize={6}>
+            <ScrollArea offsetScrollbars h={137} scrollbarSize={5}>
               {errMsg.slice(0, 250)}
             </ScrollArea>
           ),

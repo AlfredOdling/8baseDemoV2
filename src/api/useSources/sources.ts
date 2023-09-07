@@ -18,7 +18,7 @@ export const useSources = () => {
             items {
               id
               url
-              done
+              donesd
             }
           }
         }
